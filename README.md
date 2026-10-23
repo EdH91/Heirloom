@@ -34,11 +34,7 @@ The app uses a warm editorial aesthetic — DM Serif Display for headings, DM Sa
 
 ## Getting started
 
-### Run the build prompt
-
-Heirloom is built from a single Claude Code prompt. Open a new Claude Code session in the directory where you want the project to live (e.g. alongside `wide-eyes-pwa/`), then paste the contents of `heirloom-build-prompt.md`.
-
-Claude Code will scaffold the full `heirloom-pwa/` directory.
+The app lives in the `heirloom-pwa/` directory of this repository. There is no build step.
 
 ### Preview locally
 
@@ -64,6 +60,7 @@ heirloom-pwa/
   styles.css        — design system tokens, layout, components
   manifest.json     — PWA manifest
   sw.js             — service worker (cache-first, offline support)
+  README.md         — developer notes
   icons/
     icon-192.png
     icon-512.png
