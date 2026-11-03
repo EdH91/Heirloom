@@ -34,24 +34,30 @@ The app uses a warm editorial aesthetic — DM Serif Display for headings, DM Sa
 
 ## Getting started
 
-### Run the build prompt
-
-Heirloom is built from a single Claude Code prompt. Open a new Claude Code session in the directory where you want the project to live (e.g. alongside `wide-eyes-pwa/`), then paste the contents of `heirloom-build-prompt.md`.
-
-Claude Code will scaffold the full `heirloom-pwa/` directory.
-
 ### Preview locally
 
 ```bash
 cd heirloom-pwa
-npx serve .
+python3 -m http.server 8080    # or: npx serve .
 ```
 
-Then open `http://localhost:3000` in your browser. On first launch you'll be taken through onboarding to add a child and create your contributor account.
+Then open `http://localhost:8080` in your browser. On first launch you'll be taken through onboarding to add a child and create your contributor account. Camera and microphone work on `localhost`; anywhere else needs HTTPS.
 
 ### Install as a PWA
 
 In Chrome or Safari, use **Add to Home Screen** / **Install app** from the browser menu. Heirloom will open in standalone mode with no browser chrome.
+
+### Deploy (Cloudflare Pages)
+
+Heirloom has its own Cloudflare Pages project, separate from SunTimeKids:
+
+1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → choose `EdH91/Heirloom`.
+2. Production branch: `main`. Framework preset: **None**. Build command: *(leave empty)*. Build output directory: `heirloom-pwa`.
+3. Save and deploy. The app is served at `https://<project-name>.pages.dev/`. Every push to `main` redeploys it, and every other branch gets its own preview URL.
+
+Each web address keeps its own on-device storage. To move recordings between addresses (for example from a preview to the live site), use **Settings → Back up all recordings** on the old one and **Settings → Restore from backup** on the new one.
+
+Developer notes (data model, `.heirloom` format, backups, known limitations) are in [`heirloom-pwa/README.md`](heirloom-pwa/README.md).
 
 ---
 
@@ -87,5 +93,4 @@ Heirloom is a companion to **Wide Eyes**, a journaling app for children. Wide Ey
 
 ---
 
-*For the stories worth keeping.*# Heirloom
-Parent version of Wide-Eyes
+*For the stories worth keeping.*
