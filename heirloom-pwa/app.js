@@ -23,7 +23,7 @@ var BACKUP_EVERY_DAYS = 7;
 var DAY_MS = 24 * 60 * 60 * 1000;
 // Testing mode offers a backup after every new recording. On by default while
 // the app is being tested; set to false before launch (README: Testing mode).
-var TESTING_MODE_DEFAULT = true;
+var TESTING_MODE_DEFAULT = false;
 var LS_TESTING = 'heirloom-testingMode';
 
 var CATEGORIES = [
